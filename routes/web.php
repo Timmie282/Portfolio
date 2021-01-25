@@ -22,6 +22,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::namespace('Admin')->prefix('admin')->middleware(['auth', 'auth.admin'])->name('admin.')->group(function () {
+Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
     Route::resource('/pages', PagesController::class);
 });
